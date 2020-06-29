@@ -1,0 +1,114 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.login {
+  background: white;
+  margin: 0px !important;
+  height: 100vh;
+  form {
+    width: 30% !important;
+    align-content: center !important;
+    justify-content: center !important;
+    #target {
+      display: none !important;
+    }
+  }
+}
+
+.sidebar {
+  width: 18%;
+  background: #213245;
+  height: 100%;
+  // z-index: 100;
+}
+
+.body {
+  margin-left: 18%;
+}
+
+.body-space{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: auto;
+  >div:nth-child(1) {
+    margin: 1rem;
+  }
+}
+
+.navbar {
+  background: #52a8e8 !important;
+  margin-right: 0px !important;
+  .fas {
+    font-size: 1.5rem;
+  }
+  button {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.navbar-brand {
+  img {
+    width: 2.5rem;
+  }
+}
+
+.nav-item {
+  img {
+    width: 1.5rem !important;
+    filter: invert(100%);
+  }
+}
+
+// search
+
+.search-btn {
+  display: none;
+}
+input[type='search'] {
+  -webkit-appearance: textfield;
+}
+/* Fade in tabs */
+
+.search {
+  display: none;
+}
+
+.show-search {
+  display: block !important;
+  width: 8rem;
+  animation: fadeEffect1 1s;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+button[id='mydiv'] {
+  background: transparent;
+  border: none;
+  color: white;
+  &:focus {
+    outline: none;
+  }
+}
+
+@keyframes fadeEffect1 {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 8rem;
+  }
+}
+
+.dropleft {
+  button {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  .dropdown-toggle::before {
+    display: none !important;
+  }
+}

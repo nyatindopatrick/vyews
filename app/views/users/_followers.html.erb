@@ -1,0 +1,34 @@
+      <% user.each do |f|%>
+  <div class='position-relative'>
+    <%= link_to user_path(f) do%>
+      <div class='d-flex'>
+        <div class='user-avatar-section'>
+          <%if f.image.attached? %>
+            <%= image_tag(f.image, size: '40x40', class: 'rounded-circle') %>
+          <%else%>
+            <div class='avatar'>
+              <%= f.name[0] %>
+            </div>
+          <%end%>
+        </div>
+        <div class='px-3 follow-text'>
+          <p><%= f.name%></p>
+          <h5 class='f-hashtag'>#<%= f.username%></h5>
+        </div>
+      </div>
+    <%end%>
+    <%if current_user.following?(f) && @user == current_user%>
+      <div class='follow-btn f-profile'>
+        <%= link_to(user_follower_path(f), method: :delete) do%>
+          <%= image_tag 'https://image.flaticon.com/icons/svg/149/149146.svg' %>
+        <%end%>
+      </div>
+    <%elsif !current_user.following?(f) && @user == current_user%>
+      <div class='follow-btn f-profile'>
+        <%= link_to(user_followers_path(f), method: :post) do%>
+          <%= image_tag 'https://image.flaticon.com/icons/svg/149/149145.svg' %>
+        <%end%>
+      </div>
+    <%end%>
+  </div>
+<%end%>
