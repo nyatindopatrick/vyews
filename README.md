@@ -9,7 +9,7 @@
   <p align="center">
     Idea sharing app.
     <br /><br/>
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>VIEW DEMO »</strong></a>
+    <a href="https://vyew.herokuapp.com"><strong>VIEW DEMO »</strong></a>
     <br />
     <br />
    
