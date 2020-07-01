@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/nyatindopatrick/vyews">
-    <img src="https://user-images.githubusercontent.com/48393059/85749134-41884c80-b711-11ea-91c8-c833630f8b3d.png" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/48393059/86236005-015a1b80-bba2-11ea-95d5-4e4760477227.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">VYEWS</h3>
