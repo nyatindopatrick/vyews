@@ -5,7 +5,7 @@ class FollowersController < ApplicationController
     if @follower.save
       redirect_to posts_path
     else
-      redirect_to posts_path, alert: "Error!"
+      redirect_to posts_path, alert: 'Error!'
     end
   end
 

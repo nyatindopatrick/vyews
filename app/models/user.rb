@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   has_many :votes, foreign_key: :voter_id, dependent: :destroy
 
-  def following?(u)
-    following.include?(u)
+  def following?(user)
+    following.include?(user)
   end
 end

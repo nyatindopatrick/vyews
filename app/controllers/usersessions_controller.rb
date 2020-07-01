@@ -9,7 +9,7 @@ class UsersessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to posts_path
     else
-      flash[:alert] = "Please check your username!"
+      flash[:alert] = 'Please check your username!'
       render :new
     end
   end

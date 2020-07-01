@@ -4,6 +4,6 @@ module UsersHelper
   end
 
   def background_update(user)
-    render "users/imageform" if user == current_user
+    render 'users/imageform' if user == current_user
   end
 end

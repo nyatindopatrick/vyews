@@ -7,8 +7,8 @@ class Vyew
   end
 
   def post_vyew(content)
-    fill_in "content", with: content
-    click_on("Save")
+    fill_in 'content', with: content
+    click_on('Save')
     self
   end
 end

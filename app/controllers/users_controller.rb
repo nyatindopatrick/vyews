@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[new create]
 
   # GET /users
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
   # POST /users
   # POST /users.json
   def create
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to posts_path, notice: "User was successfully created." }
+        format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(cover: params[:cover])
-        format.html { redirect_to @user, notice: "User was successfully updated." }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -50,7 +49,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
 
   private
 
