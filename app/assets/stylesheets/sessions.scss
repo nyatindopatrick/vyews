@@ -1,14 +1,14 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* stylelint-disable no-descending-specificity */
 .login {
   background: white;
-  margin: 0px !important;
+  margin: 0 !important;
   height: 100vh;
+
   form {
     width: 30% !important;
     align-content: center !important;
     justify-content: center !important;
+
     #target {
       display: none !important;
     }
@@ -19,28 +19,44 @@
   width: 18%;
   background: #213245;
   height: 100%;
-  // z-index: 100;
 }
 
 .body {
   margin-left: 18%;
 }
 
-.body-space{
+.body-space {
   display: grid;
   grid-template-columns: 2fr 1fr;
   margin: auto;
-  >div:nth-child(1) {
+
+  > div:nth-child(1) {
     margin: 1rem;
+  }
+}
+
+.dropleft {
+  button {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .dropdown-toggle::before {
+    display: none !important;
   }
 }
 
 .navbar {
   background: #52a8e8 !important;
-  margin-right: 0px !important;
+  margin-right: 0 !important;
+
   .fas {
     font-size: 1.5rem;
   }
+
   button {
     &:focus {
       outline: none;
@@ -66,9 +82,11 @@
 .search-btn {
   display: none;
 }
+
 input[type='search'] {
   -webkit-appearance: textfield;
 }
+
 /* Fade in tabs */
 
 .search {
@@ -87,6 +105,7 @@ button[id='mydiv'] {
   background: transparent;
   border: none;
   color: white;
+
   &:focus {
     outline: none;
   }
@@ -94,21 +113,11 @@ button[id='mydiv'] {
 
 @keyframes fadeEffect1 {
   from {
-    width: 0px;
+    width: 0;
   }
+
   to {
     width: 8rem;
   }
 }
-
-.dropleft {
-  button {
-    color: white;
-    &:hover {
-      color: white;
-    }
-  }
-  .dropdown-toggle::before {
-    display: none !important;
-  }
-}
+/* stylelint-enable no-descending-specificity */

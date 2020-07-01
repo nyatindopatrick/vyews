@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap');
 
+/* stylelint-disable no-descending-specificity */
 body {
   font-family: 'Montserrat', sans-serif;
   background: #f4f5f7 !important;
@@ -13,26 +14,31 @@ body {
   justify-content: center;
   min-height: 90vh;
   border-radius: 5px;
+
   form {
     display: flex;
     width: 85%;
     flex-direction: column;
     align-items: center;
-    margin: 0px auto;
+    margin: 0 auto;
+
     a {
       text-decoration: none;
       color: #36b4fb;
     }
+
     input {
-      margin: 1rem 0px;
+      margin: 1rem 0;
       width: 100%;
       border-radius: 6px;
       border: 1px solid rgba(0, 0, 0, 0.25);
+
       img {
         width: 9rem;
         height: 9rem;
         border-radius: 100%;
       }
+
       &:active {
         outline: none !important;
       }
@@ -42,12 +48,14 @@ body {
     input[type='email'] {
       border: none;
       border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-      border-radius: 0px;
+      border-radius: 0;
       height: 2.5rem;
+
       &:active {
         outline: none !important;
       }
     }
+
     input[type='submit'] {
       color: white;
       background: #36b4fb;
@@ -63,10 +71,12 @@ body {
     height: 100%;
     border-radius: 100%;
   }
+
   width: 9rem;
   height: 9rem;
   border-radius: 100%;
 }
+
 .custom-file-input {
   color: transparent;
   opacity: 1 !important;
@@ -86,12 +96,13 @@ body {
     content: 'Choose an image';
     color: white;
     display: inline-block;
-    background: linear-gradient(
-      61deg,
-      rgba(38, 98, 145, 1) 0%,
-      rgba(34, 149, 214, 1) 69%,
-      rgba(54, 180, 251, 1) 100%
-    );
+    background:
+      linear-gradient(
+        61deg,
+        rgba(38, 98, 145, 1) 0%,
+        rgba(34, 149, 214, 1) 69%,
+        rgba(54, 180, 251, 1) 100%
+      );
     border: 1px solid #999;
     border-radius: 3px;
     padding: 5px 8px;
@@ -107,6 +118,7 @@ body {
   &:hover::before {
     border-color: black;
   }
+
   &:active {
     outline: none;
   }
@@ -130,7 +142,8 @@ body {
   &::before {
     content: '';
     display: inline-block;
-    background: url(https://image.flaticon.com/icons/svg/860/860763.svg)
+    background:
+      url(https://image.flaticon.com/icons/svg/860/860763.svg)
       no-repeat;
     filter: invert(100%);
     background-size: cover;
@@ -150,6 +163,7 @@ body {
   &:hover::before {
     border-color: black;
   }
+
   &:active {
     outline: none;
   }
@@ -168,6 +182,7 @@ body {
   align-items: center;
   padding: 10% 10% !important;
   color: white;
+
   h1 {
     font-weight: 700;
     animation: text 1s ease-in;
@@ -179,9 +194,11 @@ body {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 1;
   }
@@ -190,6 +207,7 @@ body {
 .profile-top {
   color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
   h5 {
     font-size: 15px;
     color: #687f97;
@@ -202,6 +220,7 @@ body {
   color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   font-size: 15px;
+
   > div:nth-last-child(1) {
     border-left: 1px solid rgba(0, 0, 0, 0.25);
   }
@@ -211,6 +230,7 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+
   p {
     color: #687f97;
   }
@@ -220,17 +240,21 @@ body {
   a {
     text-decoration: none;
     color: #687f97;
+
     > div {
       align-items: center;
       padding: 1rem 2rem;
       transition: 0.2s ease-in-out;
+
       i {
-        padding: 0px 10px;
+        padding: 0 10px;
       }
+
       &:hover {
         background: #52a8e8 !important;
       }
     }
+
     &:hover {
       text-decoration: none;
       color: white;
@@ -246,22 +270,27 @@ body {
   width: 100%;
   background: white;
   border-radius: 5px;
+
   form {
     width: 100%;
   }
+
   input[type='submit'] {
     display: none;
   }
+
   input[type='text'] {
     width: 100%;
     border-radius: 5px;
     border: 1px solid rgba(192, 192, 192, 0.25);
     padding: 8px 5px;
+
     &:focus {
       border: 1px solid rgba(192, 192, 192, 0.25);
       outline: none;
     }
   }
+
   h5 {
     font-size: 12px;
     color: rgb(170, 170, 170);
@@ -279,11 +308,13 @@ body {
   flex-direction: column;
   padding-left: 1rem;
   color: grey;
+
   h5 {
     color: black;
     font-size: 15px;
     font-weight: 600;
   }
+
   p {
     font-size: 14px;
   }
@@ -292,20 +323,20 @@ body {
 .post-main {
   padding: 1rem;
   border-radius: 5px;
-  margin: 1rem 0px;
+  margin: 1rem 0;
 }
 
 .avatar-post {
   width: 80px !important;
   height: 80px !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   font-size: 2rem;
 }
 
 .new-posts-today {
   margin: 1rem;
   border-bottom: 1px solid rgba(192, 192, 192, 0.25);
-  padding: 1rem 0px;
+  padding: 1rem 0;
   font-size: 14px;
   color: #52a8e8;
   font-weight: 600;
@@ -315,12 +346,13 @@ body {
   height: 100%;
   width: 100% !important;
   min-height: 90vh;
-  padding: 1.5rem 0px;
+  padding: 1.5rem 0;
   border-left: 1px solid rgba(192, 192, 192, 0.25);
+
   h5 {
     color: grey;
     border-bottom: 1px solid rgba(192, 192, 192, 0.25);
-    padding: 1rem 0px;
+    padding: 1rem 0;
     font-size: 14px;
   }
 }
@@ -329,7 +361,7 @@ body {
   p {
     font-size: 14px;
     font-weight: 600;
-    margin: 0px !important;
+    margin: 0 !important;
   }
 }
 
@@ -337,8 +369,9 @@ body {
   a {
     text-decoration: none;
     color: black;
-    margin: 1rem 0px;
+    margin: 1rem 0;
     padding: 1rem;
+
     &:hover {
       text-decoration: none;
       color: black;
@@ -359,11 +392,11 @@ body {
 }
 
 .user-top {
-  margin: 0px !important;
+  margin: 0 !important;
 }
 
 .cover-image {
-  margin: 0px;
+  margin: 0;
   height: 30vh;
   width: 100%;
   background-repeat: no-repeat !important;
@@ -372,12 +405,14 @@ body {
 
 .profile-tab {
   border-bottom: 2px solid rgba(192, 192, 192, 0.25);
+
   a {
     padding: 10px 1.2rem;
     text-decoration: none;
     color: grey;
     text-transform: uppercase;
     font-size: 15px;
+
     &:hover {
       text-decoration: none;
       color: black;
@@ -402,7 +437,7 @@ body {
 
 .img-options {
   width: 3rem;
-  margin: 0px 1rem;
+  margin: 0 1rem;
   opacity: 0.25;
 }
 
@@ -414,13 +449,15 @@ body {
 }
 
 .user-name {
-  margin: 1rem 0px;
+  margin: 1rem 0;
+
   h4 {
     font-size: 1rem;
     font-weight: 600;
   }
+
   h5 {
-    padding: 0px !important;
+    padding: 0 !important;
   }
 }
 
@@ -429,18 +466,21 @@ body {
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid rgba(192, 192, 192, 0.25);
   border-bottom: 1px solid rgba(192, 192, 192, 0.25);
+
   > div {
     border-left: 1px solid rgba(192, 192, 192, 0.25);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     h5 {
       font-weight: 800;
       font-size: 1.2rem;
       color: black;
       padding-bottom: 5px;
     }
+
     p {
       font-size: 14px;
       color: grey;
@@ -449,7 +489,7 @@ body {
 }
 
 .f-hashtag {
-  padding: 0px !important;
+  padding: 0 !important;
   padding-bottom: 10px !important;
 }
 
@@ -458,6 +498,7 @@ body {
     width: 2rem;
     opacity: 0.25;
   }
+
   position: absolute;
   top: 26px;
   right: 2rem;
@@ -470,6 +511,7 @@ body {
 .followed-by {
   a {
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
     }
@@ -478,11 +520,14 @@ body {
 
 .followers-tab {
   padding: 1rem;
+
   a {
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
     }
+
     h5 {
       color: grey;
       font-size: 15px;
@@ -493,18 +538,20 @@ body {
 .like-link {
   text-decoration: none;
   color: rgb(161, 161, 161);
+
   &:hover {
     text-decoration: none;
     color: grey;
   }
+
   .fas {
     font-size: 1.4rem;
   }
-
-  
 }
+
 .liked {
   color: #52a8e8;
+
   &:hover {
     text-decoration: none;
     color: #52a8e8;
@@ -513,8 +560,10 @@ body {
 
 .disliked {
   color: black;
+
   &:hover {
     text-decoration: none;
     color: black;
   }
 }
+/* stylelint-enable no-descending-specificity */
