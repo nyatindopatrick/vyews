@@ -20,3 +20,5 @@ $('.nav-tabs li a').click(function () {
   $('.nav-tabs li').removeClass('active');
   $(this).parent().addClass('active');
 });
+
+

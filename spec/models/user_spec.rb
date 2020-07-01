@@ -8,6 +8,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:followers) }
     it { should have_many(:following_user).class_name(:Follow) }
     it { should have_many(:following) }
+    it { should have_many(:votes) }
   end
 
   context "validations" do

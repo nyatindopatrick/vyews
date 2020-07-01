@@ -1,0 +1,15 @@
+     <% if user != current_user%>
+  <%if current_user.following?(user)%>
+    <div class='mt-3'>
+      <%= link_to(user_follower_path(user), method: :delete) do%>
+        <%= image_tag 'https://image.flaticon.com/icons/svg/149/149146.svg', class: 'img-options' %>
+      <%end%>
+    </div>
+  <%else %>
+    <div class='mt-3'>
+      <%= link_to(user_followers_path(user), method: :post) do%>
+        <%= image_tag 'https://image.flaticon.com/icons/svg/149/149145.svg', class: 'img-options' %>
+      <%end%>
+    </div>
+  <%end%>
+<%end%>

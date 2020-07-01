@@ -8,20 +8,16 @@
     </div>
     <nav>
       <div class="nav profile-tab d-flex" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" 
-      href="#nav-home" role="tab" aria-controls="nav-home" aria- 
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria- 
       selected="true">VYEWS</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" 
-    href="#nav-profile" role="tab" aria-controls="nav-profile" aria- 
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria- 
     selected="false">FOLLOWERS</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" 
-     href="#nav-contact" role="tab" aria-controls="nav-contact" aria- 
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria- 
       selected="false">FOLLOWING</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria- 
-    labelledby="nav-home-tab">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria- labelledby="nav-home-tab">
         <div class='hashtag'>
           <div class='new-post-area mx-auto'>
             <h5>VYEWS BY <%=@user.name.upcase%></h5>
@@ -32,11 +28,11 @@
           <%= render 'posts/posts', posts: @user.posts.reverse, kind: true %>
         </div>
       </div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria- 
+      <div class="tab-pane fade followers-tab" id="nav-profile" role="tabpanel" aria- 
      labelledby="nav-profile-tab">
         <%= render 'users/followers', user: @user.followers%>
       </div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria- 
+      <div class="tab-pane fade followers-tab" id="nav-contact" role="tabpanel" aria- 
     labelledby="nav-contact-tab">
         <%= render 'users/followers', user: @user.following%>
       </div>
@@ -44,7 +40,7 @@
   </div>
   <section class='end-sidebar'>
     <div class='user-avatar-section'>
-      <%= image_tag('https://image.flaticon.com/icons/svg/149/149145.svg', class: 'img-options') %>
+      <%= render 'users/follow_profile', user: @user %>
       <%if @user.image.attached? %>
         <%= image_tag(@user.image, size: '90x90', class: 'rounded-circle') %>
       <%else%>

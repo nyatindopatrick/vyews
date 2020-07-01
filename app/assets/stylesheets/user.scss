@@ -86,7 +86,12 @@ body {
     content: 'Choose an image';
     color: white;
     display: inline-block;
-    background: linear-gradient(61deg, rgba(38,98,145,1) 0%, rgba(34,149,214,1) 69%, rgba(54,180,251,1) 100%);
+    background: linear-gradient(
+      61deg,
+      rgba(38, 98, 145, 1) 0%,
+      rgba(34, 149, 214, 1) 69%,
+      rgba(54, 180, 251, 1) 100%
+    );
     border: 1px solid #999;
     border-radius: 3px;
     padding: 5px 8px;
@@ -107,17 +112,15 @@ body {
   }
 }
 
-
-
 .custom-background-input {
   color: transparent;
   opacity: 1 !important;
-  width: 8.1rem !important;
-  height: 2rem !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
   border: none !important;
 
   &:hover {
-    border: none;
+    border: none !important;
   }
 
   &::-webkit-file-upload-button {
@@ -125,11 +128,14 @@ body {
   }
 
   &::before {
-    content: 'Change background';
-    color: white;
+    content: '';
     display: inline-block;
-    background: linear-gradient(61deg, rgba(38,98,145,1) 0%, rgba(34,149,214,1) 69%, rgba(54,180,251,1) 100%);
-    border: 1px solid #999;
+    background: url(https://image.flaticon.com/icons/svg/860/860763.svg)
+      no-repeat;
+    filter: invert(100%);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
     border-radius: 3px;
     padding: 5px 8px;
     outline: none;
@@ -289,6 +295,13 @@ body {
   margin: 1rem 0px;
 }
 
+.avatar-post {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 0px !important;
+  font-size: 2rem;
+}
+
 .new-posts-today {
   margin: 1rem;
   border-bottom: 1px solid rgba(192, 192, 192, 0.25);
@@ -365,7 +378,6 @@ body {
     color: grey;
     text-transform: uppercase;
     font-size: 15px;
-    transition: 0.25s;
     &:hover {
       text-decoration: none;
       color: black;
@@ -461,5 +473,48 @@ body {
     &:hover {
       text-decoration: none;
     }
+  }
+}
+
+.followers-tab {
+  padding: 1rem;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+    h5 {
+      color: grey;
+      font-size: 15px;
+    }
+  }
+}
+
+.like-link {
+  text-decoration: none;
+  color: rgb(161, 161, 161);
+  &:hover {
+    text-decoration: none;
+    color: grey;
+  }
+  .fas {
+    font-size: 1.4rem;
+  }
+
+  
+}
+.liked {
+  color: #52a8e8;
+  &:hover {
+    text-decoration: none;
+    color: #52a8e8;
+  }
+}
+
+.disliked {
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
   }
 }

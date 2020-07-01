@@ -1,0 +1,13 @@
+---
+development:
+  cloud_name: dnzr6wrju
+  api_key: '138581164587443'
+  api_secret: y27XkYh0thMDhjZAbLFRZkebBx4
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dnzr6wrju
+  api_key: '138581164587443'
+  api_secret: y27XkYh0thMDhjZAbLFRZkebBx4
+  enhance_image_tag: true
+  static_file_support: true

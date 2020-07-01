@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @followers = current_user.following.map(&:id).push(current_user.id)
-    @users = User.where.not(id: @followers).order("id ASC")
+    @users = User.where.not(id: @followers).order("id DESC")
     @posts = Post.where(author_id: @followers).order("id DESC")
   end
 

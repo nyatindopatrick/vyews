@@ -17,18 +17,20 @@
         </div>
       </div>
     <%end%>
-    <%if current_user.following?(f) && @user == current_user%>
-      <div class='follow-btn f-profile'>
-        <%= link_to(user_follower_path(f), method: :delete) do%>
-          <%= image_tag 'https://image.flaticon.com/icons/svg/149/149146.svg' %>
-        <%end%>
-      </div>
-    <%elsif !current_user.following?(f) && @user == current_user%>
-      <div class='follow-btn f-profile'>
-        <%= link_to(user_followers_path(f), method: :post) do%>
-          <%= image_tag 'https://image.flaticon.com/icons/svg/149/149145.svg' %>
-        <%end%>
-      </div>
+    <% if @user == current_user%>
+      <%if current_user.following?(f)%>
+        <div class='follow-btn f-profile'>
+          <%= link_to(user_follower_path(f), method: :delete) do%>
+            <%= image_tag 'https://image.flaticon.com/icons/svg/149/149146.svg' %>
+          <%end%>
+        </div>
+      <%else %>
+        <div class='follow-btn f-profile'>
+          <%= link_to(user_followers_path(f), method: :post) do%>
+            <%= image_tag 'https://image.flaticon.com/icons/svg/149/149145.svg' %>
+          <%end%>
+        </div>
+      <%end%>
     <%end%>
   </div>
 <%end%>

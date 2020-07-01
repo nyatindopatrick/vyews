@@ -11,6 +11,7 @@ class FollowersController < ApplicationController
 
   def destroy
     @follower = Follow.find_by(follower_id: params[:user_id], user_id: params[:id])
+    @follower ||= Follow.find_by(follower_id: params[:id], user_id: current_user.id)
     if @follower.destroy
       redirect_to posts_path
     else

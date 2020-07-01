@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def background_update(user)
-    render "users/imageform" if user == current_user
+  def background_update(use)
+     use.id == current_user.id
   end
 end
