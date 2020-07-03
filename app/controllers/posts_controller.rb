@@ -5,11 +5,11 @@ class PostsController < ApplicationController
   def index
     @followers = current_user.following.map(&:id).push(current_user.id)
     @users = User.where.not(id: @followers).order('id DESC')
-    @posts = Post.where(author_id: @followers).order('id DESC')
+    @posts = Post.where(author_id: @followers).order('id DESC').includes(:authors)
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).includes(:author)
   end
 
   def new
@@ -19,29 +19,26 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, notice: 'Post was successfully created.'
+      redirect_to posts_path, flash[:notice] = 'Post was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update(post_params)
+      redirect_to @post, flash[:notice] = 'Post was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to posts_url, flash[:notice] = 'Post was successfully destroyed.'
+    else
+      flash[:alert] = 'Post deletion failed'
     end
   end
 

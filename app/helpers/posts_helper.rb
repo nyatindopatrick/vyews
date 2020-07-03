@@ -9,7 +9,6 @@ module PostsHelper
   end
 
   def like(post)
-    p ENV['CLOUD_NAME']
     user = post.voted.detect { |u| u.voter_id == current_user.id }
     if user
       link_to '', post_vote_path(post, user, voted: true), method: :delete, class: 'like-link fas fa-thumbs-up liked'

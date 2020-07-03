@@ -36,7 +36,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-The project is about a platform for sharing ideas. An authenticated user is allowed to post a vyew (idea) and his/her followers downvote or upvote the idea. The use is has to follow other users in order to see their vyews.
+The project is about a platform for sharing ideas. An authenticated user is allowed to post a vyew (idea) and his/her followers downvote or upvote the idea. The user has to follow other users in order to see their vyews.
 
 ### Built With
 
@@ -123,6 +123,5 @@ Project Link: [https://github.com/nyatindopatrick/vyews](https://github.com/nyat
 - Heroku
 - Bootstrap
 - Font Awesome
-
 
 [product-screenshot]: https://user-images.githubusercontent.com/48393059/86232973-6a8b6000-bb9d-11ea-8cbd-e8db3ca4c3b1.png
