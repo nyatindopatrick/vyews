@@ -4,8 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @followers = current_user.following.map(&:id).push(current_user.id)
-    @users = User.where.not(id: @followers).order('id DESC')
-    @posts = Post.where(author_id: @followers).order('id DESC').includes(:authors)
+    @users = User.where.not(id: @followers).includes(image_attachment: :blob).order('id DESC')
+    @posts = Post.where(author_id: @followers).includes(author: [:image_attachment]).order('id DESC')
   end
 
   def show

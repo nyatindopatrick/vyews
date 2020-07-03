@@ -20,7 +20,7 @@
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria- labelledby="nav-home-tab">
         <div class='hashtag'>
           <div class='new-post-area mx-auto'>
-            <h5>VYEWS BY <%=@user.name.upcase%></h5>
+            <h5 class='upcase'>VYEWS BY <%=@user.name%></h5>
             <%= form_with(url: posts_path, local: true) do |f| %>
               <%= f.text_field :content, placeholder: "##{@user.username}", autocomplete: 'off', disabled: true %>
             <% end %>
@@ -51,7 +51,7 @@
       <%= image_tag('https://image.flaticon.com/icons/svg/3039/3039357.svg', class: 'img-options') %>
     </div>
     <div class='centered user-name'>
-      <h4><%= @user.name.upcase%></h4>
+      <h4 class='upcase'><%= @user.name%></h4>
       <h5>#<%= @user.username%></h5>
     </div>
     <div class='profile-followers-tab'>

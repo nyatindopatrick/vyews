@@ -11,7 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = User.includes([:image_attachment]).includes([:cover_attachment])
+      .includes(followers: [:image_attachment]).includes(following: [:image_attachment])
+      .includes(posts: [:author]).find(params[:id])
   end
 
   # GET /users/new
@@ -46,7 +48,7 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.includes(:posts).find(params[:id])
+    @user = User.includes(:posts).includes([:image_attachment]).find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

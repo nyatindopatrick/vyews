@@ -1,5 +1,5 @@
 <section class='my-4 posts-section'>
-  <h5 class='new-posts-today'><%= !kind ? new_vyews(posts).upcase : "ALL VYEWS"%></h5>
+  <h5 class='new-posts-today upcase'><%= !kind ? new_vyews(posts) : "ALL VYEWS"%></h5>
   <% posts.each do |post| %>
     <div class='d-flex w-100 post-main'>
       <div>
