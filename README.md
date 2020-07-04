@@ -87,6 +87,12 @@ rails db:migrate
 rails s
 ```
 
+### Testing 
+1. To run tests for the app, open terminal, navigate to the project directory and just type the following command:
+```sh
+bundle exec rspec
+```
+
 ## Roadmap
 
 See the [open issues](https://github.com/nyatindopatrick/vyews/issues) for a list of proposed features (and known issues).
