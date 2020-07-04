@@ -11,8 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.includes([:image_attachment]).includes([:cover_attachment])
-      .includes(followers: [:image_attachment]).includes(following: [:image_attachment])
+    @user = User.includes([image_attachment: :blob]).includes([:cover_attachment])
+      .includes(followers: [image_attachment: :blob]).includes(following: [image_attachment: :blob])
       .includes(posts: [:author]).find(params[:id])
   end
 

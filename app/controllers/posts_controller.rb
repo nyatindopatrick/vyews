@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @followers = current_user.following.map(&:id).push(current_user.id)
     @users = User.where.not(id: @followers).includes(image_attachment: :blob).order('id DESC')
-    @posts = Post.where(author_id: @followers).includes(author: [:image_attachment]).order('id DESC')
+    @posts = Post.where(author_id: @followers).includes(author: [image_attachment: :blob]).order('id DESC')
   end
 
   def show
@@ -19,7 +19,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, flash[:notice] = 'Post was successfully created.'
+      flash[:notice] = 'Post was successfully created.'
+      redirect_to posts_path
     else
       render :new
     end
@@ -27,7 +28,8 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, flash[:notice] = 'Post was successfully updated.'
+      flash[:notice] = 'Post was successfully updated.'
+      redirect_to @post
     else
       render :edit
     end
@@ -36,7 +38,8 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      redirect_to posts_url, flash[:notice] = 'Post was successfully destroyed.'
+      flash[:notice] = 'Post was successfully destroyed.'
+      redirect_to posts_url
     else
       flash[:alert] = 'Post deletion failed'
     end
