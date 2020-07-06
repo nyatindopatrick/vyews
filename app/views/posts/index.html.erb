@@ -1,0 +1,46 @@
+<%if notice%>
+  <p id="notice"><%= notice %></p>
+<%end%>
+<div class='body-space'>
+  <div>
+    <div class='new-post-area mx-auto'>
+      <h5>CREATE A VYEW</h5>
+      <%= form_with(url: posts_path, local: true) do |f| %>
+        <%= f.text_field :content, placeholder: 'compose a vyew', autocomplete: 'off' %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <%= render 'posts/posts', posts: @posts, kind: false %>
+  </div>
+  <section class='end-sidebar px-3'>
+    <h5>WHO TO FOLLOW</h5>
+    <div class='follower'>
+      <% @users.each do |u| %>
+      <div class='position-relative'>
+        <%= link_to user_path(u) do%>
+          <div class='d-flex'>
+            <div class='user-avatar-section'>
+              <%if u.image.attached? %>
+                <%= image_tag(u.image, size: '40x40', class: 'rounded-circle') %>
+              <%else%>
+                <div class='avatar'>
+                  <%= u.name[0] %>
+                </div>
+              <%end%>
+            </div>
+            <div class='px-3 follow-text'>
+              <p><%= u.name%></p>
+              <h5 class='f-hashtag'>#<%= u.username%></h5>
+            </div>
+          </div>
+        <%end%>
+        <div class='follow-btn'>
+        <%= link_to(user_followers_path(u), method: :post) do%>
+        <%= image_tag 'https://image.flaticon.com/icons/svg/149/149145.svg' %>
+        <%end%>
+        </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,28 @@
+<div class='row register-main'>
+  <div class='col-lg-4 register'>
+    <%= form_with(model: user, local: true) do |f| %>
+      <h3>Create Account</h3>
+      <% if user.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div id="target"></div>
+      <%= f.file_field :image, class: 'custom-file-input', id: "pictureInput" %>
+      <%= f.text_field :name, placeholder: 'Name' %>
+      <%= f.text_field :username, placeholder: 'Username' %>
+      <%= f.email_field :email, placeholder: 'Email' %>
+      <div class="actions">
+        <%= f.submit 'Register' %>
+      </div>
+      <%= link_to  "Log in", new_usersession_path %>
+    <% end %>
+  </div>
+  <div class='col-lg-7 ideas'>
+    <h1> SHARE YOUR GREAT IDEAS AND THOUGHTS WITH THE WORLD! </h1>
+  </div>
+</div>

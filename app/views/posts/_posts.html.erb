@@ -1,0 +1,33 @@
+<section class='my-4 posts-section'>
+  <h5 class='new-posts-today upcase'><%= !kind ? new_vyews(posts) : "ALL VYEWS"%></h5>
+  <% posts.each do |post| %>
+    <div class='d-flex w-100 post-main'>
+      <div>
+        <%if post.author.image.attached? %>
+          <%= image_tag(post.author.image, size: '80x80') %>
+        <%else%>
+          <div class='avatar avatar-post'>
+            <%= post.author.name[0] %>
+          </div>
+        <%end%>
+      </div>
+      <div class='post-body w-100'>
+        <div class='d-flex'>
+          <h5><%= post.author.name%></h5>
+          <small class='ml-auto'><%= time_ago_in_words(post.created_at)%> ago</small>
+        </div>
+        <p><%= post.content%></p>
+      </div>
+    </div>
+    <div class='d-flex mx-4 pb-4' >
+      <div>
+        <%= like(post)%>
+        <%= post.voted.size%>
+      </div>
+      <div class='ml-auto'>
+        <%= dislike(post)%>
+        <%= post.unvoted.size%>
+      </div>
+    </div>
+  <% end %>
+</section>
