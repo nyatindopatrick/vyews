@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <%= link_to posts_path do %>
+    <div class="navbar-brand">
+      <img src="https://user-images.githubusercontent.com/48393059/85749134-41884c80-b711-11ea-91c8-c833630f8b3d.png" alt='logo' />
+    </div>
+  <%end%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <div class='input d-flex'>
+        <button id='mydiv' class='fas fa-search'></button>
+        <input type="text" name="search" id='searchinput'  class='search' placeholder="Search..">
+      </div>
+      <div class="dropleft">
+        <span class=''></span>
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class='fas fa-cog'></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to  "Profile", user_path(current_user), class: 'dropdown-item' %>
+          <%= link_to  "Logout", '/logout', method: :delete, class: 'dropdown-item' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

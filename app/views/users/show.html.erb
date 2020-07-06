@@ -1,0 +1,76 @@
+<%if notice%>
+  <p id="notice"><%= notice %></p>
+<%end%>
+<div class='body-space'>
+  <div class='user-top'>
+    <div class='cover-image' style='background: url(<%= @user.cover.attached? ? url_for(@user.cover) : 'https://images.pexels.com/photos/1209751/pexels-photo-1209751.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'  %>)40% '>
+      <%= background_update(@user)%>
+    </div>
+    <nav>
+      <div class="nav profile-tab d-flex" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria- 
+      selected="true">VYEWS</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria- 
+    selected="false">FOLLOWERS</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria- 
+      selected="false">FOLLOWING</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria- labelledby="nav-home-tab">
+        <div class='hashtag'>
+          <div class='new-post-area mx-auto'>
+            <h5 class='upcase'>VYEWS BY <%=@user.name%></h5>
+            <%= form_with(url: posts_path, local: true) do |f| %>
+              <%= f.text_field :content, placeholder: "##{@user.username}", autocomplete: 'off', disabled: true %>
+            <% end %>
+          </div>
+          <%= render 'posts/posts', posts: @user.posts.reverse, kind: true %>
+        </div>
+      </div>
+      <div class="tab-pane fade followers-tab" id="nav-profile" role="tabpanel" aria- 
+     labelledby="nav-profile-tab">
+        <%= render 'users/followers', user: @user.followers%>
+      </div>
+      <div class="tab-pane fade followers-tab" id="nav-contact" role="tabpanel" aria- 
+    labelledby="nav-contact-tab">
+        <%= render 'users/followers', user: @user.following%>
+      </div>
+    </div>
+  </div>
+  <section class='end-sidebar'>
+    <div class='user-avatar-section'>
+      <%= render 'users/follow_profile', user: @user %>
+      <%if @user.image.attached? %>
+        <%= image_tag(@user.image, size: '90x90', class: 'rounded-circle') %>
+      <%else%>
+        <div class='avatar big-avatar'>
+          <%= @user.name[0] %>
+        </div>
+      <%end%>
+      <%= image_tag('https://image.flaticon.com/icons/svg/3039/3039357.svg', class: 'img-options') %>
+    </div>
+    <div class='centered user-name'>
+      <h4 class='upcase'><%= @user.name%></h4>
+      <h5>#<%= @user.username%></h5>
+    </div>
+    <div class='profile-followers-tab'>
+      <div>
+        <h5><%= @user.posts.size%></h5>
+        <p>VYEWS</p>
+      </div>
+      <div>
+        <h5><%= @user.followers.size%></h5>
+        <p>FOLLOWERS</p>
+      </div>
+      <div>
+        <h5><%= @user.following.size%></h5>
+        <p>FOLLOWING</p>
+      </div>
+    </div>
+    <div class='followed-by px-3'>
+      <h5>FOLLWED BY</h5>
+      <%= render 'users/followers', user: @user.followers%>
+    </div>
+  </section>
+</div>

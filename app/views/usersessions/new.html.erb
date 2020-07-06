@@ -1,0 +1,11 @@
+<div class='login register login'>
+  <%= form_with(url: usersessions_path, local: true) do |f| %>
+    <h3>Log In</h3>
+    <div id="target"></div>
+    <%= f.text_field :username, placeholder: 'Username' %>
+    <div class="actions">
+      <%= f.submit 'Login' %>
+    </div>
+    <%= link_to  "Sign up", new_user_path %>
+  <% end %>
+</div>
